@@ -1,0 +1,12 @@
+stage('Build Docker image') {
+      steps{
+        script {
+           docker.build "myproject:1" 
+        }
+      }
+    }
+    stage('Run Docker Container') {
+      steps{
+        sh "docker run -d --name myproject  -p 8081:8081 myproject:1"
+      }
+    }  
